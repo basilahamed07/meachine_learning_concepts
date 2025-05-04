@@ -1,0 +1,18 @@
+1) step one
+    -> data clearn up
+        -> understand the dataset
+        -> check if that have any null values
+            -> commands (print(df.info()), print(df.isnull().sum()) )
+        -> Remove or Handle Duplicate Rows
+            -> commands (print(df.duplicated().sum()), df = df.drop_duplicates())
+        -> fix the datatype of the data
+            -> command for example (df['date_column'] = pd.to_datetime(df['date_column']))
+            -> df['numeric_column'] = pd.to_numeric(df['numeric_column'], errors='coerce')  # 'coerce' will turn errors into NaN
+        -> Handle Missing Data
+            -> Remove rows with missing values: -> df = df.dropna()
+            -> for Fill missing values: -> df['column_name'] = df['column_name'].fillna(df['column_name'].mean())  # or you can use median, mode, etc.
+            -> for catagory -> df['category_column'] = df['category_column'].fillna(df['category_column'].mode()[0])
+        -> Fix Inconsistent Data (conver the text into the lowercase)
+            -> df['column_name'] = df['column_name'].str.lower()  # Makes everything lowercase
+            ->  
+    - save the clearn data into this (df.to_csv('cleaned_dataset.csv', index=False))
